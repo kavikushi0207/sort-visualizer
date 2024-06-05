@@ -1,0 +1,12 @@
+<div class="controls">
+    <button (click)="generateArray()">Generate New Array</button>
+    <button (click)="sortArray()">Sort</button>
+    <label>
+      Array Size & Sorting Speed
+      <input type="range" min="10" max="100" [(ngModel)]="arraySize">
+    </label>
+  </div>
+  <div class="chart">
+    <div *ngFor="let value of array" [style.height]="value + '%'"></div>
+</div>
+  
