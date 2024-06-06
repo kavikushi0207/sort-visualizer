@@ -1,12 +1,15 @@
-<div class="controls">
-    <button (click)="generateArray()">Generate New Array</button>
-    <button (click)="sortArray()">Sort</button>
-    <label>
-      Array Size & Sorting Speed
-      <input type="range" min="10" max="100" [(ngModel)]="arraySize">
-    </label>
+<div>
+    <button (click)="generateArray(arraySize)" [disabled]="sorting">Generate Random Array</button>
+    <button (click)="sortArray()" [disabled]="sorting">Sort Array</button>
+    
+    <div class="array-container">
+      <div *ngFor="let num of array; let i = index" 
+           class="array-bar" 
+           [class.comparing]="isComparing(i)" 
+           [style.height]="num + 'px'">
+      </div>
+    </div>
   </div>
-  <div class="chart">
-    <div *ngFor="let value of array" [style.height]="value + '%'"></div>
-</div>
   
+
+<!-- <router-outlet></router-outlet> -->
