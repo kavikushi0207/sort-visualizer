@@ -1,0 +1,15 @@
+<div>
+    <button (click)="generateArray(arraySize)" [disabled]="sorting">Generate Random Array</button>
+    <button (click)="sortArray()" [disabled]="sorting">Sort Array</button>
+    
+    <div class="array-container">
+      <div *ngFor="let num of array; let i = index" 
+           class="array-bar" 
+           [class.comparing]="isComparing(i)" 
+           [style.height]="num + 'px'">
+      </div>
+    </div>
+  </div>
+  
+
+<!-- <router-outlet></router-outlet> -->
