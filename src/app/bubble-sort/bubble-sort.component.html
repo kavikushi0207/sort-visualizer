@@ -1,14 +1,83 @@
 <div>
-    <button (click)="generateArray(arraySize)" [disabled]="sorting">Generate Random Array</button>
-    <button (click)="sortArray()" [disabled]="sorting">Sort Array</button>
-    
-    <div class="array-container">
-      <div *ngFor="let num of array; let i = index" 
-           class="array-bar" 
-           [class.comparing]="isComparing(i)" 
-           [style.height]="num + 'px'">
-      </div>
+   <div class="header">
+    <h2>Sorting Visualizer</h2>
     </div>
+    <div  class="container">
+        <label class="components" for="arraySize">Array Size</label>
+        <input class="components"  type="number" id="arraySize" [(ngModel)]="arraySize" min="5" max="30" [disabled]="sorting">
+        <button class="components" (click)="generateArray(arraySize)" [disabled]="sorting">Generate Random Array</button>
+        <label  class="components" for="arraySize">Sorting Speed</label>
+        <input  class="components" type="range" min="1" max="20" [(ngModel)]="time">
+    </div>
+    <div class="container">
+        <button class="button" (click)="sortArray((1/time)*500)" [disabled]="sorting"> Bubble Sort</button>
+        <button  class="button" (click)="sortArray((1/time)*500)" [disabled]="sorting"> Selection Sort</button>
+        <button class="button" (click)="sortArray((1/time)*500)" [disabled]="sorting"> Quick Sort</button>
+        <button  class="button" (click)="sortArray((1/time)*500)" [disabled]="sorting"> Merge Sort</button>
+        <button  class="button" (click)="sortArray((1/time)*500)" [disabled]="sorting"> Insertion Sort</button>
+        <button class="button" (click)="sortArray((1/time)*500)" [disabled]="sorting"> Counting Sort</button>
+        <button  class="button" (click)="sortArray((1/time)*500)" [disabled]="sorting"> Radix Sort</button>
+    </div>
+    <div class="container" >
+        <div class="column">
+            <div class="array-container">
+                <div *ngFor="let num of array; let i = index" 
+                     class="array-bar" 
+                     [class.comparing]="isComparing(i)" 
+                     [style.height]="num*3.5 + 'px'">
+                </div>
+              </div>
+        </div>
+        <div class="divider" role="separator" aria-label="Divider"></div>
+        <div class="column">
+            <div class="tabs">
+                <button (click)="selectTab('tab1')" [class.active]="activeTab === 'tab1'">TypeScript</button>
+                <button (click)="selectTab('tab2')" [class.active]="activeTab === 'tab2'">JavaScript</button>
+                <button (click)="selectTab('tab3')" [class.active]="activeTab === 'tab3'">Java</button>
+                <button (click)="selectTab('tab4')" [class.active]="activeTab === 'tab4'">Python</button>
+                <button (click)="selectTab('tab5')" [class.active]="activeTab === 'tab5'">C</button>
+                <button (click)="selectTab('tab6')" [class.active]="activeTab === 'tab6'">C#</button>
+              </div>
+              <div class="tab-content" *ngIf="activeTab === 'tab1'">
+                <pre><code [innerHTML]="bubbleSortTypeScript"></code></pre>
+              </div>
+              <div class="tab-content" *ngIf="activeTab === 'tab2'">
+                <!-- Content for Tab 2 -->
+                <pre><code [innerHTML]="bubbleSortJavaScript"></code></pre>
+            </div>
+             
+              <div class="tab-content" *ngIf="activeTab === 'tab3'">
+                <!-- Content for Tab 3 -->
+                <pre><code [innerHTML]="bubbleSortJava"></code></pre>
+              </div>
+              
+              <div class="tab-content" *ngIf="activeTab === 'tab4'">
+                <!-- Content for Tab 2 -->
+                <pre><code [innerHTML]="bubbleSortPython"></code></pre>
+              </div>
+             
+              <div class="tab-content" *ngIf="activeTab === 'tab5'">
+                <!-- Content for Tab 3 -->
+                <pre><code [innerHTML]="bubbleSortC"></code></pre>
+            </div>
+              
+              <div class="tab-content" *ngIf="activeTab === 'tab6'">
+                <!-- Content for Tab 2 -->
+                <pre><code [innerHTML]="bubbleSortCSharp"></code></pre>
+            
+                </div>
+              
+            <!-- <div class="code-container">
+                <div>
+                    <pre>
+                        <code  [innerHTML]="java_code" > 
+                        </code>
+                      </pre> 
+                </div>
+              </div> -->
+        </div>
+    </div>
+    
   </div>
   
 
