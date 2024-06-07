@@ -1,20 +1,28 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
+import { bubbleSortC,bubbleSortCSharp,bubbleSortJava,bubbleSortJavaScript,bubbleSortPython,bubbleSortTypeScript } from './code-snippets/bubble-sort';
 @Component({
   selector: 'app-bubble-sort',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './bubble-sort.component.html',
   styleUrls: ['./bubble-sort.component.css']
 })
 export class BubbleSortComponent {
-  array: number[] = [];
-  arraySize: number = 10;
+  array:  number[] = [];
+  arraySize: number = 20;
   sorting: boolean = false;
+  time: number = 25;
   comparingIndices: number[] = [];
+  activeTab: string = 'tab1';
+  bubbleSortJavaScript = bubbleSortJavaScript;
+  bubbleSortPython = bubbleSortPython;
+  bubbleSortJava = bubbleSortJava;
+  bubbleSortC = bubbleSortC;
+  bubbleSortCSharp = bubbleSortCSharp;
+  bubbleSortTypeScript = bubbleSortTypeScript;
 
   constructor() {
     this.generateArray(this.arraySize);
@@ -28,7 +36,7 @@ export class BubbleSortComponent {
     }
   }
 
-  async sortArray(): Promise<void> {
+  async sortArray(time: number): Promise<void> {
     this.sorting = true;
     let n = this.array.length;
     for (let i = 0; i < n - 1; i++) {
@@ -39,12 +47,13 @@ export class BubbleSortComponent {
           this.array[j] = this.array[j + 1];
           this.array[j + 1] = temp;
         }
-        await this.sleep(1000); // Pause for visualization
+        await this.sleep(time); // Pause for visualization
         this.comparingIndices = [];
       }
     }
     this.sorting = false;
   }
+  
 
   sleep(ms: number): Promise<void> {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -52,5 +61,8 @@ export class BubbleSortComponent {
 
   isComparing(index: number): boolean {
     return this.comparingIndices.includes(index);
+  }
+  selectTab(tab: string): void {
+    this.activeTab = tab;
   }
 }
