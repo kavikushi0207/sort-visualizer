@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { bubbleSortC,bubbleSortCSharp,bubbleSortJava,bubbleSortJavaScript,bubbleSortPython,bubbleSortTypeScript } from './code-snippets/bubble-sort';
+import { bubbleSortC,bubbleSortCSharp,bubbleSortJava,bubbleSortCPP,bubbleSortJavaScript,bubbleSortPython,bubbleSortTypeScript } from './code-snippets/bubble-sort';
 @Component({
   selector: 'app-bubble-sort',
   standalone: true,
@@ -23,7 +23,7 @@ export class BubbleSortComponent {
   bubbleSortC = bubbleSortC;
   bubbleSortCSharp = bubbleSortCSharp;
   bubbleSortTypeScript = bubbleSortTypeScript;
-
+  bubbleSortCPP = bubbleSortCPP;
   constructor() {
     this.generateArray(this.arraySize);
   }

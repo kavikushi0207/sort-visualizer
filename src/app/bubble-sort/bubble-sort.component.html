@@ -36,7 +36,8 @@
                 <button (click)="selectTab('tab3')" [class.active]="activeTab === 'tab3'">Java</button>
                 <button (click)="selectTab('tab4')" [class.active]="activeTab === 'tab4'">Python</button>
                 <button (click)="selectTab('tab5')" [class.active]="activeTab === 'tab5'">C</button>
-                <button (click)="selectTab('tab6')" [class.active]="activeTab === 'tab6'">C#</button>
+                <button (click)="selectTab('tab6')" [class.active]="activeTab === 'tab6'">C++</button>
+                <button (click)="selectTab('tab7')" [class.active]="activeTab === 'tab7'">C#</button>
               </div>
               <div class="tab-content" *ngIf="activeTab === 'tab1'">
                 <pre><code [innerHTML]="bubbleSortTypeScript"></code></pre>
@@ -63,20 +64,23 @@
               
               <div class="tab-content" *ngIf="activeTab === 'tab6'">
                 <!-- Content for Tab 2 -->
-                <pre><code [innerHTML]="bubbleSortCSharp"></code></pre>
+                <pre><code [innerHTML]="bubbleSortCPP"></code></pre>
             
                 </div>
-              
-            <!-- <div class="code-container">
-                <div>
-                    <pre>
-                        <code  [innerHTML]="java_code" > 
-                        </code>
-                      </pre> 
+                <div class="tab-content" *ngIf="activeTab === 'tab7'">
+                    <!-- Content for Tab 2 -->
+                    <pre><code [innerHTML]="bubbleSortCSharp"></code></pre>
                 </div>
-              </div> -->
         </div>
     </div>
+    <div>
+      <div class="container" >
+        <!-- Embedding the external website -->
+        <iframe id="embedded-site" src="https://www.wordreference.com/it/"></iframe>
+    </div> 
+    </div>
+    <div class="footer">
+        <p>© 2024 Sorting Visualizer. All Rights Reserved.</p>
     
   </div>
   
