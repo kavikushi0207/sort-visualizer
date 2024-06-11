@@ -1,4 +1,8 @@
 # SortVisualizer
+## Kavini's new released commit, 
+
+this is going to check whether the changes i have made on git commits and are they going to auto deployed and show the changes
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.2.
 
